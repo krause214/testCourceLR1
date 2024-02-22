@@ -3,7 +3,8 @@
 
 using namespace std;
 
-const int MAX_VALUE = 10001;
+const int MAX_INT_VALUE = 2147483647;
+const int SEARCH_PRIME_LIMIT = 10000;
 
 class MyPrimes {
     int limit;
@@ -97,8 +98,8 @@ private:
 
 class FirstLabTools {
 public:
-    static pair<int, int> countAndSum(const vector<int>& array) {
-        MyPrimes* primes = new MyPrimes(MAX_VALUE);
+    static pair<int, int> countAndSum(const vector<int>& array) {   
+        MyPrimes* primes = new MyPrimes(SEARCH_PRIME_LIMIT);
         vector<int> primesArray = primes->getPrimeArray();
         int count = 0;
         int sum = 0;
