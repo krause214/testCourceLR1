@@ -1,12 +1,18 @@
 #include <iostream>
 #include <vector>
 
-#include <lib/lr1.h>
+#include <lib/lr1.cpp>
+
+using namespace std;
 
 int main() {
-    std::vector<int> arr = {10, 14, 15, 20, 21, 25, 30};
-    std::pair<int, int> result = countAndSum(arr);
-    std::cout << "Number of elements that are divisible by 5 and not divisible by 7: " << result.first << std::endl;
-    std::cout << "Sum: " << result.second << std::endl;
+    vector<vector<int>> arr = FirstLabTools::getNumsFromFile("../resources/tests.txt");
+    for (size_t i = 0; i < arr.size(); i++)
+    {
+        cout << "Test number " << i << endl;
+        pair<int, int> result = FirstLabTools::countAndSum(arr[0]);
+        cout << "Number of elements that are squares or cubes of prime numbers: " << result.first << endl;
+        cout << "Sum: " << result.second << endl;
+    }
     return 0;
 }

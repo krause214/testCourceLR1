@@ -1,1 +1,1 @@
-add_library(lr1_lib lr1.cpp lr1.h)
+add_library(lr1_lib lr1.cpp "../out/lr1.h")

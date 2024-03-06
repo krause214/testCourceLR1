@@ -1,4 +1,4 @@
-#include <lib/lr1.h>
+#include <lib/lr1.cpp>
 #include <gtest/gtest.h>
 #include <vector>
 #include <utility>
@@ -12,7 +12,7 @@ protected:
     // в функции SetUp()
     void SetUp() override {
         // Например, инициализация данных
-        arr = {10, 14, 15, 20, 21, 25, 30};
+        arr = {9, 25, 27, 7, 7, 7, 7};
     }
 
     // Здесь вы можете освободить ресурсы, если это необходимо
@@ -30,32 +30,36 @@ protected:
 // Пример теста1
 TEST_F(CountAndSumTest, CTest1) {
 // Вызываем функцию countAndSum с тестовыми данными
-    result = countAndSum(arr);
+    result = FirstLabTools::countAndSum(arr);
 
 // Проверяем ожидаемые результаты
-    EXPECT_EQ(result.first, 5);
-    EXPECT_EQ(result.second, 100);
+    EXPECT_EQ(result.first, 3);
+    EXPECT_EQ(result.second, 61);
 }
 
 // Пример теста111111
 TEST_F(CountAndSumTest, CTest11111) {
+    // Инициализация данных
+    arr = { 1, 1 };
+
 // Вызываем функцию countAndSum с тестовыми данными
-    result = countAndSum(arr);
+    result = FirstLabTools::countAndSum(arr);
 
 // Проверяем ожидаемые результаты
-    EXPECT_EQ(result.first, 5);
-    EXPECT_EQ(result.second, 100);
+    EXPECT_EQ(result.first, 0);
+    EXPECT_EQ(result.second, 0);
 }
 
 // Пример теста 2
-//TEST_F(CountAndSumTest, CTest2) {
-//// Вызываем функцию countAndSum с тестовыми данными
-//    result = countAndSum(arr);
-//
-//// Проверяем ожидаемые результаты
-//    EXPECT_EQ(result.first, 15);
-//    EXPECT_EQ(result.second, 100);
-//}
+TEST_F(CountAndSumTest, CTest2) {
+// Вызываем функцию countAndSum с тестовыми данными
+    arr = { 9 };
+    result = FirstLabTools::countAndSum(arr);
+
+// Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, 1);
+    EXPECT_EQ(result.second, 9);
+}
 
 // Пример теста3
 TEST(CountAndSumTest1, CTest3) {
@@ -63,11 +67,11 @@ TEST(CountAndSumTest1, CTest3) {
     std::vector<int> arr;
     std::pair<int, int> result;
     // Инициализация данных
-    arr = {10, 14, 15, 20, 21, 25, 30, 35, 5};
+    arr = {1, 1, 1, 1, 1, 1, 1, 1, 1};
 // Вызываем функцию countAndSum с тестовыми данными
-    result = countAndSum(arr);
+    result = FirstLabTools::countAndSum(arr);
 
 // Проверяем ожидаемые результаты
-    EXPECT_EQ(result.first, 6);
-    EXPECT_EQ(result.second, 105);
+    EXPECT_EQ(result.first, 0);
+    EXPECT_EQ(result.second, 0);
 }
