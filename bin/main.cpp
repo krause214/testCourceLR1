@@ -5,9 +5,11 @@
 
 using namespace std;
 
+
 int main() {
-    vector<vector<int>> arr = FirstLabTools::getNumsFromFile("../resources/tests.txt");
-    for (size_t i = 0; i < arr.size(); i++)
+    vector<string> errorArray;
+    vector<vector<int>> arr = FirstLabTools::getNumsFromFile("../resources/tests.txt", errorArray);
+    for (size_t i = 2; i < arr.size(); i++)
     {
         cout << "Test number " << i << endl;
         pair<int, int> result = FirstLabTools::countAndSum(arr[0]);
