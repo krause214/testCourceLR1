@@ -11,15 +11,15 @@ protected:
 
     // Здесь вы можете добавить дополнительные настройки для тестов
     // в функции SetUp()
-    vector<vector<int>> arr;
-    vector<string> errorArray;
+    vector<vector<long long>> arr;
+    string errorString;
     void SetUp() override {
         // Например, инициализация данных
-        arr = FirstLabTools::getNumsFromFile("../resources/tests.txt", errorArray);
+        arr = FirstLabTools::getNumsFromFile("../resources/tests.txt");
     }
 
-    vector<int> getTestArray(int testNum) {
-        vector<int> testArray{};
+    vector<long long> getTestArray(int testNum) {
+        vector<long long> testArray{};
         for (int i = 2; i < arr[testNum].size(); i++)
         {
             testArray.push_back(arr[testNum][i]);
@@ -38,9 +38,6 @@ protected:
         expPair.second = getSecondExpected(testNum);
         return expPair;
     }
-    void printErrors(int testNum) {
-        cout << endl << "ERRORS: " << errorArray[testNum] << endl;
-    }
 
     // Здесь вы можете освободить ресурсы, если это необходимо
     // в функции TearDown()
@@ -55,54 +52,274 @@ protected:
 };
 
 // Пример теста1
-TEST_F(CountAndSumTest, CTest0) {
+TEST_F(CountAndSumTest, CTest1) {
 // Вызываем функцию countAndSum с тестовыми данными
-    result = FirstLabTools::countAndSum(getTestArray(0));
-    printErrors(0);
+
+    int testNum = 1;
+    
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
 
 // Проверяем ожидаемые результаты
-    EXPECT_EQ(result.first, 0);
-    EXPECT_EQ(result.second, 0);
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
 }
 
+TEST_F(CountAndSumTest, CTest2) {
+    // Вызываем функцию countAndSum с тестовыми данными
 
+    int testNum = 2;
 
-//
-//// Пример теста111111
-//TEST_F(CountAndSumTest, CTest11111) {
-//    // Инициализация данных
-//    arr = { 1, 1 };
-//
-//// Вызываем функцию countAndSum с тестовыми данными
-//    result = FirstLabTools::countAndSum(arr);
-//
-//// Проверяем ожидаемые результаты
-//    EXPECT_EQ(result.first, 0);
-//    EXPECT_EQ(result.second, 0);
-//}
-//
-//// Пример теста 2
-//TEST_F(CountAndSumTest, CTest2) {
-//// Вызываем функцию countAndSum с тестовыми данными
-//    arr = { 9 };
-//    result = FirstLabTools::countAndSum(arr);
-//
-//// Проверяем ожидаемые результаты
-//    EXPECT_EQ(result.first, 1);
-//    EXPECT_EQ(result.second, 9);
-//}
-//
-//// Пример теста3
-//TEST(CountAndSumTest1, CTest3) {
-//    // Объявляем переменные, которые будут использоваться в тесте
-//    std::vector<int> arr;
-//    std::pair<int, int> result;
-//    // Инициализация данных
-//    arr = {1, 1, 1, 1, 1, 1, 1, 1, 1};
-//// Вызываем функцию countAndSum с тестовыми данными
-//    result = FirstLabTools::countAndSum(arr);
-//
-//// Проверяем ожидаемые результаты
-//    EXPECT_EQ(result.first, 0);
-//    EXPECT_EQ(result.second, 0);
-//}
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest3) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 3;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest4) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 4;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest5) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 5;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest6) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 6;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest7) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 7;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest8) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 8;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest9) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 9;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest10) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 10;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest11) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 11;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest12) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 12;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest13) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 13;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest14) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 14;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest15) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 15;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest16) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 16;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest17) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 17;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest18) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 18;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest19) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 19;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+
+TEST_F(CountAndSumTest, CTest20) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 20;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}
+TEST_F(CountAndSumTest, CTest21) {
+    // Вызываем функцию countAndSum с тестовыми данными
+
+    int testNum = 21;
+
+    result = FirstLabTools::countAndSum(getTestArray(testNum - 1), errorString);
+    cout << errorString;
+
+    // Проверяем ожидаемые результаты
+    EXPECT_EQ(result.first, getFirstExpected(testNum - 1));
+    EXPECT_EQ(result.second, getSecondExpected(testNum - 1));
+}

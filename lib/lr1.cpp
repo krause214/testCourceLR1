@@ -22,72 +22,72 @@ public:
         }
         return errors;
     }
-    static vector<vector<int>> getNumsFromFile(string inputFileName, vector<string>& errorArray) { //"../resources/fileName.txt"
+    static vector<vector<long long>> getNumsFromFile(string inputFileName) { //"../resources/fileName.txt"
         ifstream inputFile(inputFileName);
-        vector<vector<int>> parsedArray;
-        int num;
+        vector<vector<long long>> parsedArray;
+        long long num;
         string str;
         
         string word;
-        vector<int> parsedTest;
+        vector<long long> parsedTest;
         while (getline(inputFile,str)) { // Extract word from the stream.
             stringstream ss;
             ss << str;
-            int found;
+            long long found;
             string temp;
-            string errorsString = "";
             while (!ss.eof()) {
-
                 /* extracting word by word from stream */
                 ss >> temp;
-
                 /* Checking the given word is integer or not */
-                if (stringstream(temp) >> found && found >= 0 && found < INT32_MAX)
+                if (stringstream(temp) >> found)
                     parsedTest.push_back(found);
-                else
-                    errorsString = errorsString + "Invalid input format: " + temp + "; ";
-
-
+                //parsedTest.push_back(stoul(temp));
                 /* To save from space at the end of string */
                 temp = "";
             }
-            if (parsedTest.size() > 1026) {
-                parsedTest.clear();
-                errorsString += "The number of values ​​is greater than 1024; ";
-            }
-            else if (parsedTest.size() < 3) {
-                parsedTest.clear();
-                errorsString += "The number of values ​​is equal 0; ";
-            }
-            else
-                parsedArray.push_back(parsedTest);
+            parsedArray.push_back(parsedTest);
             parsedTest.clear();
-            putError(errorArray, errorsString);
         }
         return parsedArray;
     }
     static void putError(vector<string>& array, string exceptionError) {
         array.push_back(exceptionError);
     }
-    static pair<int, int> countAndSum(const vector<int>& array) {   
-        int count = 0;
+    static pair<int, int> countAndSum(const vector<long long>& array, string& errorString) {
+        int count = 0;//1
         int sum = 0;
+        errorString = "";
 
-        for (int num : array) {
-            int rootOrThirdRoot = 0;
-            if (FirstLabTools::hasIntegerThirdRoot(num)) {
-                rootOrThirdRoot = (int)pow(num, 1 / 3.f);
+        if (array.size() > 1024) {//2
+            errorString += "The number of values ​​is greater than 1024; ";//3
+            return make_pair(-1, -1);//17
+        }
+        else if (array.size() == 0) {//4
+            errorString += "The number of values ​​is equal 0; ";//5
+            return make_pair(-1, -1);//17
+        }
+
+        for (int i = 0; i < array.size(); i++) {//6
+            long long num = array[i];
+            if (num > INT32_MAX || num < 0) {//7
+                errorString += "Illigal number value: " + to_string(num);//8
+                return make_pair(-1, -1);//17
             }
-            else if (FirstLabTools::hasIntegerRoot(num)) {
-                rootOrThirdRoot = (int)pow(num, 1 / 2.f);
+            int rootOrThirdRoot = 0;//9
+            if (FirstLabTools::hasIntegerThirdRoot(num)) {//10
+                rootOrThirdRoot = (int)pow(num, 1 / 3.f);//11
+            }
+            else if (FirstLabTools::hasIntegerRoot(num)) {//12
+                rootOrThirdRoot = (int)pow(num, 1 / 2.f);//13
             }
             if (rootOrThirdRoot != 0 &&
-                FirstLabTools::isInArray(rootOrThirdRoot, primesArray)) {
-                count++;
-                sum += num;
+                FirstLabTools::isInArray(rootOrThirdRoot, primesArray)) {//14
+                count++;//15
+                sum += array[i];
             }
+            //16 (i = i + 1)
         }
-        return make_pair(count, sum);
+        return make_pair(count, sum);//17
     }
     static bool isInArray(int num, vector<int> array) {
         for (int i = 0; i < array.size(); i++)
