@@ -13,3 +13,5 @@ add_subdirectory(bin)
 
 enable_testing()
 add_subdirectory(tests)
+
+configure_file(tests.txt ${CMAKE_CURRENT_BINARY_DIR}/tests/tests.txt COPYONLY)

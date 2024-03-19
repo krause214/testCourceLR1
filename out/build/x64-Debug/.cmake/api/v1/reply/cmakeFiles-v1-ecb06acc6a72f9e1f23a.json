@@ -141,7 +141,13 @@
 			"path" : "D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
+			"path" : "tests.txt"
+		},
+		{
 			"path" : "lib/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/tests.txt"
 		},
 		{
 			"path" : "bin/CMakeLists.txt"
