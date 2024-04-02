@@ -5,12 +5,16 @@
 
 using namespace std;
 
+
 int main() {
-    vector<vector<int>> arr = FirstLabTools::getNumsFromFile("../resources/tests.txt");
-    for (size_t i = 0; i < arr.size(); i++)
+    vector<string> errorArray;
+    string errorString;
+    FirstLabTools flt;
+    vector<vector<long long>> arr = flt.getNumsFromFile("../test/tests.txt");
+    for (size_t i = 2; i < arr.size(); i++)
     {
         cout << "Test number " << i << endl;
-        pair<int, int> result = FirstLabTools::countAndSum(arr[0]);
+        pair<int, int> result = flt.countAndSum(arr[0], errorString);
         cout << "Number of elements that are squares or cubes of prime numbers: " << result.first << endl;
         cout << "Sum: " << result.second << endl;
     }
